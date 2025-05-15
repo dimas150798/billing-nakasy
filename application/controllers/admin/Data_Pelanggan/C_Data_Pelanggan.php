@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_Dashboard_Admin extends CI_Controller
+class C_Data_Pelanggan extends CI_Controller
 {
     public function __construct()
     {
@@ -20,21 +20,9 @@ class C_Dashboard_Admin extends CI_Controller
 
     public function index()
     {
-        // Mengambil Date Sekarang
-        date_default_timezone_set("Asia/Jakarta");
-        $Today = date('Y-m-d');
-
-        // Memisahkan Tanggal
-        $Split_Date       = explode("-", $Today);
-        $tahun          = $Split_Date[0];
-        $bulan          = $Split_Date[1];
-
-        $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan();
-        $data['Pelanggan_Baru']     = $this->M_Pelanggan->Pelanggan_Baru($tahun, $bulan);
-
         $this->load->view('template/admin/V_Header');
         $this->load->view('template/admin/V_Sidebar');
-        $this->load->view('admin/V_Dashboard_Admin', $data);
+        $this->load->view('admin/Data_Pelanggan/V_Data_Pelanggan');
         $this->load->view('template/admin/V_Footer');
     }
 }
