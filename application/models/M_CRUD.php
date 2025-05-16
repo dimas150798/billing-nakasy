@@ -27,4 +27,13 @@ class M_CRUD extends CI_Model
         $this->db->insert_batch($table, $data);
         return $this->db->affected_rows();
     }
+
+
+    function get($tabel, $where)
+    {
+        $this->db->select("*");
+        $this->db->from($tabel);
+        $this->db->where($where);
+        return $this->db->get();
+    }
 }

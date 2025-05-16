@@ -159,7 +159,8 @@
                         <!-- Cluster -->
                         <div class="navbar-nav d-flex d-md-none align-items-center w-100">
                             <div class="nav-item ps-3">
-                                <div class="text-truncate fw-bold text-black" data-i18n="Basic">KRAKSAAN</div>
+                                <div class="text-truncate fw-bold text-black" data-i18n="Basic"> <?= $this->session->userdata('cluster') ?>
+                                </div>
                             </div>
                         </div>
                         <!-- /Cluster -->
@@ -177,7 +178,8 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="me-1" viewBox="0 0 16 16">
                                         <path d="M8 12.146l-3.717 2.325.711-4.146L2 6.868l4.161-.605L8 2.75l1.839 3.513L14 6.868l-2.994 3.457.711 4.146z" />
                                     </svg>
-                                    Kraksaan
+                                    <?= $this->session->userdata('cluster') ?>
+
                                 </a>
                             </li>
                             <!-- /Cluster -->

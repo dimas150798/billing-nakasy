@@ -34,7 +34,7 @@ class M_Login extends CI_Model
     // Check akses login
     public function CheckLogin($email_login, $password_login)
     {
-        $this->db->select('data_login.email_login, data_login.password_login, data_login.id_akses');
+        $this->db->select('data_login.email_login, data_login.password_login, data_login.id_akses, data_login.cluster');
         $this->db->join('data_akses', 'data_login.id_akses=data_akses.id_akses', 'left');
         $this->db->where('data_login.email_login', $email_login);
         $this->db->where('data_login.password_login', $password_login);

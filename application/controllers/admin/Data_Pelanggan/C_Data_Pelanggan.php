@@ -28,7 +28,7 @@ class C_Data_Pelanggan extends CI_Controller
 
     public function GetDataAjax()
     {
-        $result = $this->M_Pelanggan->DataPelanggan();
+        $result = $this->M_Pelanggan->DataPelanggan($this->session->userdata('cluster'));
 
         $no = 0;
 
@@ -47,7 +47,6 @@ class C_Data_Pelanggan extends CI_Controller
                     <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-bs-toggle="dropdown" data-bs-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
                         Opsi
                     </button>
-          
                 </div>
                 </div>';
             $data[] = $row;

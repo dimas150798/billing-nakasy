@@ -3,10 +3,12 @@
 class M_Pelanggan extends CI_Model
 {
     // Menampilkan Data Pelanggan
-    public function DataPelanggan()
+    public function DataPelanggan($kode_mikrotik)
     {
         $query   = $this->db->query("SELECT id_customer, kode_customer, phone_customer, nama_customer, name_pppoe, nama_paket, start_date
             FROM data_customer
+
+            WHERE kode_mikrotik = '$kode_mikrotik'
     
             GROUP BY name_pppoe
             ORDER BY name_pppoe ASC");
@@ -15,11 +17,11 @@ class M_Pelanggan extends CI_Model
     }
 
     // Menampilkan Total Pelanggan Keseluruhan
-    public function Total_Pelanggan()
+    public function Total_Pelanggan($kode_mikrotik)
     {
         $query   = $this->db->query("SELECT name_pppoe 
         FROM data_customer 
-        WHERE stop_date is null
+        WHERE stop_date is null AND kode_mikrotik = '$kode_mikrotik'
         GROUP BY name_pppoe
         ORDER BY name_pppoe ASC");
 

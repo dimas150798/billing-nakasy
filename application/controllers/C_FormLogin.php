@@ -35,17 +35,20 @@ class C_FormLogin extends CI_Controller
 
                 // Setting session login email
                 $this->session->set_userdata('email', $checkDataLogin->email_login);
+                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
 
                 redirect('superadmin/C_Dashboard_Superadmin');
             } elseif ($email_login == $checkDataLogin->email_login && $checkDataLogin->id_akses == 2) {
 
                 // Setting session login email
+                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
                 $this->session->set_userdata('email', $checkDataLogin->email_login);
 
                 redirect('admin/C_Dashboard_Admin');
             } elseif ($email_login == $checkDataLogin->email_login && $checkDataLogin->id_akses == 3) {
 
                 // Setting session login email
+                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
                 $this->session->set_userdata('email', $checkDataLogin->email_login);
 
                 redirect('user/C_Dashboard_User');

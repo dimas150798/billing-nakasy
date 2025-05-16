@@ -21,7 +21,7 @@
                                                  </button>
                                                  <ul class="dropdown-menu">
                                                      <li><a class="dropdown-item" href="#">Export as Excel</a></li>
-                                                     <li><a class="dropdown-item" href="#">Import as Excel</a></li>
+                                                     <li><a class="dropdown-item" href="<?php echo base_url('admin/Data_Pelanggan/C_Import_Pelanggan') ?>">Import as Excel</a></li>
                                                  </ul>
                                              </div>
                                              <button type="button" class="btn btn-primary">
