@@ -25,4 +25,38 @@ class C_Data_Pelanggan extends CI_Controller
         $this->load->view('admin/Data_Pelanggan/V_Data_Pelanggan');
         $this->load->view('template/admin/V_Footer');
     }
+
+    public function GetDataAjax()
+    {
+        $result = $this->M_Pelanggan->DataPelanggan();
+
+        $no = 0;
+
+        foreach ($result as $dataCustomer) {
+
+            $row = array();
+            $row[] = '<div class="text-center">' . ++$no . '</div>';
+            $row[] = $dataCustomer['nama_customer'];
+            $row[] = $dataCustomer['name_pppoe'];
+            $row[] = '<div class="text-center">' . $dataCustomer['phone_customer'] . '</div>';
+            $row[] = '<div class="text-center">' . $dataCustomer['nama_paket'] . '</div>';
+
+            $row[] =
+                '<div class="text-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-bs-toggle="dropdown" data-bs-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                        Opsi
+                    </button>
+          
+                </div>
+                </div>';
+            $data[] = $row;
+        }
+
+        $ouput = array(
+            'data' => $data
+        );
+
+        $this->output->set_content_type('application/json')->set_output(json_encode($ouput));
+    }
 }

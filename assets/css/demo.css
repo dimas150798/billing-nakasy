@@ -117,3 +117,9 @@
 .alert {
     transition: opacity 0.5s ease;
 }
+
+.custom-black-btn:hover {
+  background-color: #222;
+  color: #fff;
+  text-decoration: none;
+}

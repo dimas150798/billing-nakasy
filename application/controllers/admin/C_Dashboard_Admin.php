@@ -32,6 +32,10 @@ class C_Dashboard_Admin extends CI_Controller
         $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan();
         $data['Pelanggan_Baru']     = $this->M_Pelanggan->Pelanggan_Baru($tahun, $bulan);
 
+
+        // $this->M_Mikrotik_Kraksaan->index();
+        $this->M_Mikrotik_Paiton->index();
+
         $this->load->view('template/admin/V_Header');
         $this->load->view('template/admin/V_Sidebar');
         $this->load->view('admin/V_Dashboard_Admin', $data);

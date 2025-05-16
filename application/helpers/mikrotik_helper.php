@@ -15,22 +15,52 @@ function formatBytes($bytes, $decimal = null)
     return round($bytes, $decimal) . " " . $satuan[$i];
 }
 
-function connect()
+function Connect_Kraksaaan()
 {
     $CI = &get_instance();
-    $CI->load->model('MikrotikModel');
-    $result = $CI->MikrotikModel->CheckStatusMikrotik();
 
-    $ipMikrotik         = $result->ip_mikrotik;
-    $usernameMikrotik   = $result->username_mikrotik;
-    $passwordMikrotik   = $result->password_mikrotik;
-
+    $ipMikrotik         = '103.189.60.31:8799';
+    $usernameMikrotik   = 'adminnakasy';
+    $passwordMikrotik   = 'nakasyinfly';
 
     $api = new RouterosAPI();
-    $api->connect($ipMikrotik, $usernameMikrotik, $passwordMikrotik);
+    $connected = $api->connect('103.189.60.31:8799', 'adminnakasy', 'nakasyinfly');
 
+    // if (!$connected) {
+    //     echo json_encode("Connection Failed Kraksaan: " . $api->error_str);
+    //     exit;
+    // }
+
+    // // Cek jumlah data ppp/secret/print
     // if (count($api->comm('/ppp/secret/print')) == 0) {
-    //     echo json_encode("Connection Failed");
+    //     echo json_encode("No PPP secrets found");
+    //     $api->disconnect(); // Disconnect jika tidak ada data
+    //     exit;
+    // }
+
+    return $api;
+}
+
+function Connect_Paiton()
+{
+    $CI = &get_instance();
+
+    $ipMikrotik         = '103.189.60.33:8799';
+    $usernameMikrotik   = 'adminnakasy';
+    $passwordMikrotik   = 'nakasyinfly';
+
+    $api = new RouterosAPI();
+    $connected = $api->connect('103.189.60.33:8799', 'adminnakasy', 'nakasyinfly');
+
+    // if (!$connected) {
+    //     echo json_encode("Connection Failed Kraksaan: " . $api->error_str);
+    //     exit;
+    // }
+
+    // // Cek jumlah data ppp/secret/print
+    // if (count($api->comm('/ppp/secret/print')) == 0) {
+    //     echo json_encode("No PPP secrets found");
+    //     $api->disconnect(); // Disconnect jika tidak ada data
     //     exit;
     // }
 

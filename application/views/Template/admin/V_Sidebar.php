@@ -157,16 +157,30 @@
                     <div class="navbar-nav-right d-flex align-items-center justify-content-end" id="navbar-collapse">
 
                         <!-- Cluster -->
-                        <div class="navbar-nav d-flex align-items-center w-100">
-                            <div class="nav-item ps-3"> <!-- Bisa juga pakai ms-3 atau margin-left biasa -->
-                                <!-- <div class="text-truncate fw-bold" data-i18n="Basic">Selamat Datang</div> -->
-                                <div class="text-truncate fw-bold" data-i18n="Basic">KRAKSAAN</div>
+                        <div class="navbar-nav d-flex d-md-none align-items-center w-100">
+                            <div class="nav-item ps-3">
+                                <div class="text-truncate fw-bold text-black" data-i18n="Basic">KRAKSAAN</div>
                             </div>
                         </div>
                         <!-- /Cluster -->
 
+
                         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
                             <!-- Place this tag where you want the button to render. -->
+
+                            <!-- Cluster -->
+                            <li class="nav-item lh-1 me-4 d-none d-md-flex  ms-md-auto">
+                                <a
+                                    href="#"
+                                    class="d-inline-flex align-items-center"
+                                    style="background-color: #000; color: #fff; border-radius: 6px; font-size: 14px; padding: 6px 12px; text-decoration: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="me-1" viewBox="0 0 16 16">
+                                        <path d="M8 12.146l-3.717 2.325.711-4.146L2 6.868l4.161-.605L8 2.75l1.839 3.513L14 6.868l-2.994 3.457.711 4.146z" />
+                                    </svg>
+                                    Kraksaan
+                                </a>
+                            </li>
+                            <!-- /Cluster -->
 
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
