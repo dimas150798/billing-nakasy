@@ -59,6 +59,7 @@ class M_Pelanggan extends CI_Model
         }
     }
 
+    // Check data pelanggan invoice 
     public function CheckDuplicateCode($code_invoice)
     {
         $this->db->select('order_id, name_pppoe');

@@ -20,9 +20,11 @@ class C_Data_Pelanggan extends CI_Controller
 
     public function index()
     {
+        $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan($this->session->userdata('cluster'));
+
         $this->load->view('template/admin/V_Header');
         $this->load->view('template/admin/V_Sidebar');
-        $this->load->view('admin/Data_Pelanggan/V_Data_Pelanggan');
+        $this->load->view('admin/Data_Pelanggan/V_Data_Pelanggan', $data);
         $this->load->view('template/admin/V_Footer');
     }
 
