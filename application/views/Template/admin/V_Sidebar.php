@@ -204,8 +204,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="mb-0">John Doe</h6>
-                                                    <small class="text-body-secondary">Admin</small>
+                                                    <h6 class="mb-0"> <?= $this->session->userdata('username_email') ?></h6>
+                                                    <small class="text-body-secondary"><?= $this->session->userdata('role') ?></small>
                                                 </div>
                                             </div>
                                         </a>
@@ -215,7 +215,7 @@
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="javascript:void(0);">
+                                        <a class="dropdown-item" href="<?php echo base_url('C_FormLogin/logout') ?>">
                                             <i class="icon-base bx bx-power-off icon-md me-3"></i><span>Log Out</span>
                                         </a>
                                     </li>

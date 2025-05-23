@@ -7,60 +7,68 @@ class C_FormLogin extends CI_Controller
 
     public function index()
     {
-        $this->form_validation->set_rules('email_login', 'email_login', 'required');
-        $this->form_validation->set_rules('password_login', 'password_login', 'required');
-        $this->form_validation->set_message('required', 'Masukan data terlebih dahulu');
+        // Validasi form input
+        $this->form_validation->set_rules('email_login', 'Email', 'required', ['required' => 'Masukkan data terlebih dahulu']);
+        $this->form_validation->set_rules('password_login', 'Password', 'required', ['required' => 'Masukkan data terlebih dahulu']);
 
-        if ($this->form_validation->run() == false) {
-            // apabila error kembali ke form login
+        if ($this->form_validation->run() === false) {
+            // Jika validasi gagal, kembali ke halaman login
             $this->load->view('V_FormLogin');
-        } else {
-            // mengambil data dari view post
-            $email_login = $this->input->post('email_login');
-            $password_login = $this->input->post('password_login');
+            return;
+        }
 
-            // pengecheckan data login
-            $checkDataLogin = $this->M_Login->CheckLogin($email_login, $password_login);
+        // Ambil data input dari form
+        $email_login    = $this->input->post('email_login');
+        $password_login = $this->input->post('password_login');
 
-            if ($checkDataLogin == NULL) {
+        // Cek kredensial pengguna di database
+        $checkDataLogin = $this->M_Login->CheckLogin($email_login, $password_login);
 
-                $this->session->set_flashdata('login_error', 'Email atau password salah!');
+        // Jika data tidak ditemukan
+        if (!$checkDataLogin) {
+            $this->session->set_flashdata('login_error', 'Email atau password salah!');
+            redirect('C_FormLogin');
+            return;
+        }
 
-                redirect('C_FormLogin');
-            } elseif ($email_login == $checkDataLogin->email_login && $checkDataLogin->id_akses == 1) {
+        // Jika email cocok dan akses valid
+        if ($email_login === $checkDataLogin->email_login) {
 
-                // Notifikasi gagal login
-                $this->session->set_flashdata('CheckMikrotik_icon', 'error');
-                $this->session->set_flashdata('CheckMikrotik_title', 'Email atau Password Salah');
+            // Username dari email (huruf kapital awal)
+            $Username_Email = ucfirst(strstr($checkDataLogin->email_login, '@', true));
 
-                // Setting session login email
-                $this->session->set_userdata('email', $checkDataLogin->email_login);
-                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
+            // Set session data
+            $this->session->set_userdata([
+                'email'           => $checkDataLogin->email_login,
+                'cluster'         => $checkDataLogin->cluster,
+                'role'            => $checkDataLogin->nama_akses,
+                'username_email'  => $Username_Email
+            ]);
 
-                redirect('superadmin/C_Dashboard_Superadmin');
-            } elseif ($email_login == $checkDataLogin->email_login && $checkDataLogin->id_akses == 2) {
-
-                // Setting session login email
-                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
-                $this->session->set_userdata('email', $checkDataLogin->email_login);
-
-                redirect('admin/C_Dashboard_Admin');
-            } elseif ($email_login == $checkDataLogin->email_login && $checkDataLogin->id_akses == 3) {
-
-                // Setting session login email
-                $this->session->set_userdata('cluster', $checkDataLogin->cluster);
-                $this->session->set_userdata('email', $checkDataLogin->email_login);
-
-                redirect('user/C_Dashboard_User');
-            } else {
-                // Notifikasi gagal login
-
-                $this->session->set_flashdata('login_error', 'Email atau password salah!');
-
-                redirect('C_FormLogin');
+            // Redirect sesuai akses
+            switch ($checkDataLogin->id_akses) {
+                case 1:
+                    redirect('superadmin/C_Dashboard_Superadmin');
+                    break;
+                case 2:
+                    redirect('admin/C_Dashboard_Admin');
+                    break;
+                case 3:
+                    redirect('user/C_Dashboard_User');
+                    break;
+                default:
+                    // Akses tidak dikenali
+                    $this->session->set_flashdata('login_error', 'Akses tidak dikenali!');
+                    redirect('C_FormLogin');
+                    break;
             }
+        } else {
+            // Jika email tidak cocok
+            $this->session->set_flashdata('login_error', 'Email atau password salah!');
+            redirect('C_FormLogin');
         }
     }
+
 
     public function TerminasiAuto()
     {
