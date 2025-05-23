@@ -2,83 +2,34 @@
 <div class="content-wrapper">
     <!-- Content -->
     <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="row">
-            <div class="col-xxl-4 col-lg-12 col-md-4 order-1">
-                <div class="row">
+        <div class="row g-4">
 
-                    <div class="col-lg-6 col-md-12 col-12 mb-4">
-                        <div class="card text-center">
-                            <div class="card-body d-flex align-items-center">
-                                <!-- Icon Kiri -->
-                                <div class="flex-shrink-0 me-3">
-                                    <i class="bi bi-person-fill-add fs-2 text-primary"></i>
-                                </div>
+            <!-- Card Item -->
+            <?php
+            $cards = [
+                ['icon' => 'bi-person-fill-add', 'label' => 'Pelanggan Baru', 'value' => $Pelanggan_Baru],
+                ['icon' => 'bi-person-circle', 'label' => 'Total Pelanggan', 'value' => $Total_Pelanggan],
+                ['icon' => 'bi-patch-check', 'label' => 'Pelanggan Lunas', 'value' => 0],
+                ['icon' => 'bi-patch-exclamation', 'label' => 'Pelanggan Belum Lunas', 'value' => 0]
+            ];
 
-                                <!-- Konten Kanan -->
-                                <div class="text-start text-md-center flex-grow-1">
-                                    <p class="mb-1 text-muted text-truncate">Pelanggan Baru</p>
-                                    <h4 class="card-title mb-0"><?php echo $Pelanggan_Baru ?></h4>
-
-                                </div>
+            foreach ($cards as $card): ?>
+                <div class="col-sm-6 col-xl-3">
+                    <div class="card shadow-sm border-0 h-100 card-hover">
+                        <div class="card-body d-flex align-items-center p-4">
+                            <div class="icon-box bg-light rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                <i class="bi <?= $card['icon'] ?> fs-4 text-primary"></i>
+                            </div>
+                            <div class="text-start">
+                                <small class="text-muted"><?= $card['label'] ?></small>
+                                <h4 class="mb-0 mt-1 fw-semibold"><?= $card['value'] ?></h4>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 col-md-12 col-12 mb-4">
-                        <div class="card text-center">
-                            <div class="card-body d-flex align-items-center">
-                                <!-- Icon Kiri -->
-                                <div class="flex-shrink-0 me-3">
-                                    <i class="bi bi-person-circle fs-2 text-primary"></i>
-                                </div>
-
-                                <!-- Konten Kanan -->
-                                <div class="text-start text-md-center flex-grow-1">
-                                    <p class="mb-1 text-muted text-truncate">Total Pelanggan</p>
-                                    <h4 class="card-title mb-0"><?php echo $Total_Pelanggan ?></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-12 mb-4">
-                        <div class="card text-center">
-                            <div class="card-body d-flex align-items-center">
-                                <!-- Icon Kiri -->
-                                <div class="flex-shrink-0 me-3">
-                                    <i class="bi bi-patch-check fs-2 text-primary"></i>
-                                </div>
-
-                                <!-- Konten Kanan -->
-                                <div class="text-start text-md-center flex-grow-1">
-                                    <p class="mb-1 text-muted text-truncate">Pelanggan Lunas</p>
-                                    <h4 class="card-title mb-0">0</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-12 col-12 mb-4">
-                        <div class="card text-center">
-                            <div class="card-body d-flex align-items-center">
-                                <!-- Icon Kiri -->
-                                <div class="flex-shrink-0 me-3">
-                                    <i class="bi bi-patch-exclamation fs-2 text-primary"></i>
-                                </div>
-
-                                <!-- Konten Kanan -->
-                                <div class="text-start text-md-center flex-grow-1">
-                                    <p class="mb-1 text-muted text-truncate">Pelanggan Belum Lunas</p>
-                                    <h4 class="card-title mb-0">0</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
                 </div>
-            </div>
+            <?php endforeach; ?>
+
         </div>
     </div>
     <!-- / Content -->
+</div>
