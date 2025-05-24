@@ -126,7 +126,7 @@
 
                     <!-- Data ODP -->
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('admin/Data_ODP/C_Data_ODP') ?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-map"></i>
                             <div class="text-truncate" data-i18n="Basic">Data ODP</div>
                         </a>
