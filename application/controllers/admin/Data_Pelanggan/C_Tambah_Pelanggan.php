@@ -130,9 +130,27 @@ class C_Tambah_Pelanggan extends CI_Controller
         $this->session->set_flashdata('Tambah_icon', 'success');
         $this->session->set_flashdata('Tambah_title', 'Tambah Data Berhasil');
 
-        // Refresh data Mikrotik
-        $this->M_Mikrotik_Kraksaan->index();
-        $this->M_Mikrotik_Paiton->index();
+        $cluster = $this->session->userdata('cluster');
+
+        $connectFunctions = [
+            'Kraksaan' => 'Connect_Kraksaaan',
+            'Paiton'   => 'Connect_Paiton'
+        ];
+
+        if (isset($connectFunctions[$cluster])) {
+            $api = $connectFunctions[$cluster]();
+            if ($api === null) {
+                redirect('C_FormLogin');
+                return;
+            }
+        } else {
+            // Refresh Mikrotik
+            if ($this->session->userdata('cluster') == 'Kraksaan') {
+                $this->M_Mikrotik_Kraksaan->index();
+            } elseif ($this->session->userdata('cluster') == 'Paiton') {
+                $this->M_Mikrotik_Paiton->index();
+            }
+        }
 
         redirect('admin/Data_Pelanggan/C_Data_Pelanggan');
     }

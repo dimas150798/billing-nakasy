@@ -20,6 +20,7 @@
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+
 <!-- Core JS -->
 <script src="<?php echo base_url(); ?>assets/vendor/libs/jquery/jquery.js"></script>
 <script src="<?php echo base_url(); ?>assets/vendor/libs/popper/popper.js"></script>
@@ -30,35 +31,22 @@
 <!-- Vendors JS -->
 <script src="<?php echo base_url(); ?>assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
+<!-- Select2 -->
+<script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
+
 <!-- Main JS -->
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/dashboards-analytics.js"></script>
 
+<!-- JS dataTables -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/af-2.5.1/r-2.4.0/datatables.min.js"></script>
+
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?php echo base_url(); ?>vendor/SweetAlert2/sweetalert2.all.min.js"></script>
 
-<!-- JS dataTables -->
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.13.1/af-2.5.1/r-2.4.0/datatables.min.js">
-</script>
-
-<!-- Ajax Show Data Pelanggan -->
-<script>
-    $(document).ready(function() {
-        $('#mytable').DataTable({
-            "autoFill": true,
-            "pagingType": 'numbers',
-            "searching": true,
-            "paging": true,
-            "stateSave": true,
-            "processing": true,
-            "serverside": true,
-            "ajax": {
-                "url": "<?= base_url('admin/Data_Pelanggan/C_Data_Pelanggan/GetDataAjax'); ?>",
-            },
-        })
-    })
-</script>
-
+<!-- Custom JS (separate AJAX and other logic) -->
+<script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
 
 </body>
 

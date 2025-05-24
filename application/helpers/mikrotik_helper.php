@@ -19,27 +19,32 @@ function Connect_Kraksaaan()
 {
     $CI = &get_instance();
 
-    $ipMikrotik         = '103.189.60.31:8799';
-    $usernameMikrotik   = 'adminnakasy';
-    $passwordMikrotik   = 'nakasyinfly';
+    $ipMikrotik       = '103.189.60.31:8799';
+    $usernameMikrotik = 'adminnakasy';
+    $passwordMikrotik = 'nakasyinfly';
 
     $api = new RouterosAPI();
-    $connected = $api->connect('103.189.60.31:8799', 'adminnakasy', 'nakasyinfly');
 
-    // if (!$connected) {
-    //     echo json_encode("Connection Failed Kraksaan: " . $api->error_str);
-    //     exit;
-    // }
+    try {
+        if (!$api->connect($ipMikrotik, $usernameMikrotik, $passwordMikrotik)) {
+            throw new Exception("Gagal terhubung ke Mikrotik Kraksaan. Silakan periksa koneksi atau kredensial.");
+        }
 
-    // // Cek jumlah data ppp/secret/print
-    // if (count($api->comm('/ppp/secret/print')) == 0) {
-    //     echo json_encode("No PPP secrets found");
-    //     $api->disconnect(); // Disconnect jika tidak ada data
-    //     exit;
-    // }
+        // Jika tidak ada data PPP
+        $pppSecrets = $api->comm('/ppp/secret/print');
+        if (count($pppSecrets) == 0) {
+            $api->disconnect();
+            throw new Exception("Tidak ada data PPP ditemukan di Mikrotik Kraksaan.");
+        }
 
-    return $api;
+        return $api;
+    } catch (Exception $e) {
+        // Kembalikan null jika gagal, dan simpan pesan ke session untuk ditampilkan
+        $CI->session->set_flashdata('mikrotik_error', $e->getMessage());
+        return null;
+    }
 }
+
 
 function Connect_Paiton()
 {
@@ -50,19 +55,22 @@ function Connect_Paiton()
     $passwordMikrotik   = 'nakasyinfly';
 
     $api = new RouterosAPI();
-    $connected = $api->connect('103.189.60.33:8799', 'adminnakasy', 'nakasyinfly');
+    try {
+        if (!$api->connect($ipMikrotik, $usernameMikrotik, $passwordMikrotik)) {
+            throw new Exception("Gagal terhubung ke Mikrotik Paiton. Silakan periksa koneksi atau kredensial.");
+        }
 
-    // if (!$connected) {
-    //     echo json_encode("Connection Failed Kraksaan: " . $api->error_str);
-    //     exit;
-    // }
+        // Jika tidak ada data PPP
+        $pppSecrets = $api->comm('/ppp/secret/print');
+        if (count($pppSecrets) == 0) {
+            $api->disconnect();
+            throw new Exception("Tidak ada data PPP ditemukan di Mikrotik Paiton.");
+        }
 
-    // // Cek jumlah data ppp/secret/print
-    // if (count($api->comm('/ppp/secret/print')) == 0) {
-    //     echo json_encode("No PPP secrets found");
-    //     $api->disconnect(); // Disconnect jika tidak ada data
-    //     exit;
-    // }
-
-    return $api;
+        return $api;
+    } catch (Exception $e) {
+        // Kembalikan null jika gagal, dan simpan pesan ke session untuk ditampilkan
+        $CI->session->set_flashdata('mikrotik_error', $e->getMessage());
+        return null;
+    }
 }

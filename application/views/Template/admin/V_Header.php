@@ -43,4 +43,9 @@
     <!-- Helpers & Config (must come after core stylesheets) -->
     <script src="<?php echo base_url(); ?>assets/vendor/js/helpers.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/config.js"></script>
+
+    <!--CSS Select  -->
+    <link href="<?php echo base_url(); ?>assets/css/select2.min.css" rel="stylesheet" />
+    <link href="<?php echo base_url(); ?>assets/css/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+
 </head>

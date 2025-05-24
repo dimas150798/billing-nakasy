@@ -75,4 +75,19 @@ class M_Pelanggan extends CI_Model
             return false;
         }
     }
+
+    public function Edit_Pelanggan($id_customer)
+    {
+        $query   = $this->db->query("SELECT id_customer, kode_customer, phone_customer, 
+            latitude, longitude, nama_customer, id_paket, nama_paket, name_pppoe, 
+            password_pppoe, id_pppoe, id_pppoe_paiton, alamat_customer, email_customer, 
+            start_date, stop_date, nama_area, deskripsi_customer, nama_sales, disabled, 
+            disabled_paiton, kode_mikrotik
+
+            FROM data_customer
+
+            WHERE id_customer = '$id_customer'");
+
+        return $query->result_array();
+    }
 }

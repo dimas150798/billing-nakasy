@@ -38,20 +38,16 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <!-- endbuild -->
-
-    <!-- Page CSS -->
     <!-- Page -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/css/pages/page-auth.css" />
 
     <!-- Helpers -->
     <script src="<?php echo base_url(); ?>assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-
     <script src="<?php echo base_url(); ?>assets/js/config.js"></script>
 
+    <!-- SweetAlert -->
     <link href="<?php echo base_url(); ?>vendor/SweetAlert2/sweetalert2.min.css" rel="stylesheet" />
 
 </head>
@@ -132,6 +128,14 @@
                         </div>
 
 
+                        <?php if ($this->session->flashdata('mikrotik_error')) : ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Error:</strong> <?= $this->session->flashdata('mikrotik_error'); ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
+
+
                         <form id="form_login" class="user" method="POST" action="<?php echo base_url('C_FormLogin'); ?>">
                             <div class="mb-6">
                                 <label for="email" class="form-label">Email</label>
@@ -175,12 +179,7 @@
 
     <script src="<?php echo base_url(); ?>assets/vendor/js/menu.js"></script>
 
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
     <!-- Main JS -->
-
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
     <!-- Page JS -->
@@ -194,10 +193,6 @@
 
     <!-- Font  -->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-    <!-- Jquery 3.6.0 -->
-    <!-- <script src="<?php echo base_url(); ?>assets/js/jquery-3.6.0.min.js">
-    </script> -->
 
     <!-- SweetAlert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

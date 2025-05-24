@@ -24,6 +24,7 @@ class C_Data_Pelanggan extends CI_Controller
 
         $this->load->view('template/admin/V_Header');
         $this->load->view('template/admin/V_Sidebar');
+        $this->load->view('template/admin/V_Get_Data');
         $this->load->view('admin/Data_Pelanggan/V_Data_Pelanggan', $data);
         $this->load->view('template/admin/V_Footer');
     }
@@ -51,18 +52,17 @@ class C_Data_Pelanggan extends CI_Controller
                     </button>
                     <ul class="dropdown-menu shadow-sm rounded-3">
                         <li>
-                            <a class="dropdown-item d-flex align-items-center gap-2" href="' . base_url('admin/C_Pelanggan/edit/' . $dataCustomer['id_customer']) . '">
-                                <i class="bi bi-pencil-square text-primary"></i> Edit
-                            </a>
+                            <a onclick="EditDataPelanggan(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-black"><i class="bi bi-pencil-square"></i> Edit A</a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center gap-2 text-danger btn-delete" href="#" data-id="' . $dataCustomer['id_customer'] . '">
+                            <a class="dropdown-item d-flex align-items-center gap-2 text-danger btn-delete" href="#" data-id="' . htmlspecialchars($dataCustomer['id_customer']) . '">
                                 <i class="bi bi-trash"></i> Hapus
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>';
+
 
 
             $data[] = $row;

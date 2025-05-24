@@ -29,11 +29,31 @@ class C_Dashboard_Admin extends CI_Controller
         $tahun          = $Split_Date[0];
         $bulan          = $Split_Date[1];
 
+        $cluster = $this->session->userdata('cluster');
+
+        $connectFunctions = [
+            'Kraksaan' => 'Connect_Kraksaaan',
+            'Paiton'   => 'Connect_Paiton'
+        ];
+
+        if (isset($connectFunctions[$cluster])) {
+            $api = $connectFunctions[$cluster]();
+            if ($api === null) {
+                redirect('C_FormLogin');
+                return;
+            }
+        } else {
+            // Refresh Mikrotik
+            if ($this->session->userdata('cluster') == 'Kraksaan') {
+                $this->M_Mikrotik_Kraksaan->index();
+            } elseif ($this->session->userdata('cluster') == 'Paiton') {
+                $this->M_Mikrotik_Paiton->index();
+            }
+        }
+
+        // Database
         $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan($this->session->userdata('cluster'));
         $data['Pelanggan_Baru']     = $this->M_Pelanggan->Pelanggan_Baru($tahun, $bulan);
-
-        // $this->M_Mikrotik_Kraksaan->index();
-        // $this->M_Mikrotik_Paiton->index();
 
         $this->load->view('template/admin/V_Header');
         $this->load->view('template/admin/V_Sidebar');
