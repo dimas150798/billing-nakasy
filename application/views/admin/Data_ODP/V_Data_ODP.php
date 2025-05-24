@@ -39,9 +39,9 @@
                     <table id="mytable" class="table table-hover table-striped table-bordered align-middle" style="width:100%">
                         <thead class="table-light">
                             <tr class="text-center text-nowrap">
-                                <th>No</th>
-                                <th>Nama Area</th>
-                                <th>Action</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama Area</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
