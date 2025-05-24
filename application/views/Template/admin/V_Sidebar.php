@@ -86,26 +86,27 @@
                     <!-- Data Pelanggan -->
                     <li class="menu-item">
                         <a href="<?php echo base_url('admin/Data_Pelanggan/C_Data_Pelanggan') ?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <i class="menu-icon tf-icons bx bx-user"></i>
                             <div class="text-truncate" data-i18n="Basic">Data Pelanggan</div>
                         </a>
                     </li>
 
-                    <!-- PEMBAYARAN -->
+                    <!-- Pembayaran -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <i class="menu-icon tf-icons bx bx-credit-card"></i>
                             <div class="text-truncate fs-6" data-i18n="Layouts">Pembayaran</div>
                         </a>
-
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="layouts-without-menu.html" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-check-circle"></i>
                                     <div class="text-truncate" data-i18n="Without menu">Sudah Lunas</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="layouts-without-navbar.html" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-error-circle"></i>
                                     <div class="text-truncate" data-i18n="Without navbar">Belum Lunas</div>
                                 </a>
                             </li>
@@ -117,8 +118,8 @@
 
                     <!-- Paket Internet -->
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                        <a href="<?php echo base_url('admin/Paket_Internet/C_Paket_Internet') ?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-globe"></i>
                             <div class="text-truncate" data-i18n="Basic">Paket Internet</div>
                         </a>
                     </li>
@@ -126,7 +127,7 @@
                     <!-- Data ODP -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <i class="menu-icon tf-icons bx bx-map"></i>
                             <div class="text-truncate" data-i18n="Basic">Data ODP</div>
                         </a>
                     </li>
@@ -134,7 +135,7 @@
                     <!-- Data Sales -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <i class="menu-icon tf-icons bx bx-user-voice"></i>
                             <div class="text-truncate" data-i18n="Basic">Data Sales</div>
                         </a>
                     </li>

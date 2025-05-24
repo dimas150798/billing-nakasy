@@ -1,5 +1,5 @@
      <!-- Content wrapper -->
-     <div class="content-wrapper">
+     <div class="content-wrapper bg-light min-vh-100 py-4">
 
          <!-- Content -->
          <div class="container-xxl flex-grow-1 container-p-y">
@@ -66,7 +66,7 @@
 
 
                              <!-- Tabel -->
-                             <table id="mytable" class="table table-bordered responsive nowrap" style="width:100%">
+                             <table id="mytable" class="table  table-striped table-bordered responsive nowrap" style="width:100%">
                                  <thead class="table-light">
                                      <tr>
                                          <th class="text-center">No</th>

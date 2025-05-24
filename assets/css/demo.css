@@ -129,19 +129,4 @@
     z-index: 1050 !important; /* Higher than other elements */
 }
 
-/* Make sure the layout elements like header, sidebar, body are behind the modal */
-.layout-wrapper,
-.layout-container,
-.layout-page,
-.layout-navbar,
-.layout-menu,
-.footer {
-    position: relative;
-    z-index: 1;  /* Lower z-index to ensure the modal comes above */
-}
 
-/* Optionally, you can hide the page content behind the modal by adding some overlay */
-.swal2-container::before {
-    background-color: rgba(0, 0, 0, 0.4) !important; /* Slight overlay for better modal visibility */
-    z-index: 1000 !important;  /* Ensure overlay is below the modal but above the page content */
-}

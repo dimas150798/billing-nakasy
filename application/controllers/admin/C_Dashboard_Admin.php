@@ -36,21 +36,21 @@ class C_Dashboard_Admin extends CI_Controller
             'Paiton'   => 'Connect_Paiton'
         ];
 
-        // Pastikan hanya menjalankan cluster yang sesuai
-        if (isset($connectFunctions[$cluster])) {
-            $api = $connectFunctions[$cluster](); // Memanggil fungsi koneksi sesuai cluster
-            if ($api === null) {
-                redirect('C_FormLogin'); // Jika API gagal terkoneksi, arahkan ke login
-                return;
-            }
+        // // Pastikan hanya menjalankan cluster yang sesuai
+        // if (isset($connectFunctions[$cluster])) {
+        //     $api = $connectFunctions[$cluster](); // Memanggil fungsi koneksi sesuai cluster
+        //     if ($api === null) {
+        //         redirect('C_FormLogin'); // Jika API gagal terkoneksi, arahkan ke login
+        //         return;
+        //     }
 
-            // Eksekusi berdasarkan cluster yang terhubung
-            if ($cluster === 'Kraksaan') {
-                $this->M_Mikrotik_Kraksaan->index();
-            } elseif ($cluster === 'Paiton') {
-                $this->M_Mikrotik_Paiton->index();
-            }
-        }
+        //     // Eksekusi berdasarkan cluster yang terhubung
+        //     if ($cluster === 'Kraksaan') {
+        //         $this->M_Mikrotik_Kraksaan->index();
+        //     } elseif ($cluster === 'Paiton') {
+        //         $this->M_Mikrotik_Paiton->index();
+        //     }
+        // }
 
         // Database
         $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan($this->session->userdata('cluster'));
