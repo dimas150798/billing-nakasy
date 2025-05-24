@@ -45,19 +45,10 @@ class C_Paket_Internet extends CI_Controller
 
             $row[] = '
             <div class="text-center">
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu shadow-sm rounded-3">
-                        <li>
-                            <a onclick="Edit_Data(' . $data_PaketInternet['id_paket'] . ')"class="dropdown-item text-black"><i class="bi bi-pencil-square"></i> Edit </a>
-                        </li>
-                        <li>
-                            <a onclick="Delete_Data(' . $data_PaketInternet['id_paket'] . ')"class="dropdown-item text-danger"><i class="bi bi-trash"></i> Delete </a>
-                        </li>
-                    </ul>
-                </div>
+                <button type="button" onclick="Edit_Data(' . $data_PaketInternet['id_paket'] . ')" 
+                        class="btn btn-sm btn-danger">
+                    <i class="bi bi-trash"></i> Delete
+                </button>
             </div>';
 
             $data[] = $row;
