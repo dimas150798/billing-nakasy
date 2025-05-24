@@ -38,19 +38,33 @@ class C_Data_Pelanggan extends CI_Controller
 
             $row = array();
             $row[] = '<div class="text-center">' . ++$no . '</div>';
-            $row[] = $dataCustomer['nama_customer'];
+            $row[] = ucwords(strtolower($dataCustomer['nama_customer']));
             $row[] = $dataCustomer['name_pppoe'];
             $row[] = '<div class="text-center">' . $dataCustomer['phone_customer'] . '</div>';
             $row[] = '<div class="text-center">' . $dataCustomer['nama_paket'] . '</div>';
 
-            $row[] =
-                '<div class="text-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-info dropdown-toggle" data-bs-toggle="dropdown" data-bs-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
-                        Opsi
+            $row[] = '
+            <div class="text-center">
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-three-dots-vertical"></i>
                     </button>
+                    <ul class="dropdown-menu shadow-sm rounded-3">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2" href="' . base_url('admin/C_Pelanggan/edit/' . $dataCustomer['id_customer']) . '">
+                                <i class="bi bi-pencil-square text-primary"></i> Edit
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 text-danger btn-delete" href="#" data-id="' . $dataCustomer['id_customer'] . '">
+                                <i class="bi bi-trash"></i> Hapus
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                </div>';
+            </div>';
+
+
             $data[] = $row;
         }
 
