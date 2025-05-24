@@ -36,20 +36,22 @@ class C_Dashboard_Admin extends CI_Controller
             'Paiton'   => 'Connect_Paiton'
         ];
 
+        // Pastikan hanya menjalankan cluster yang sesuai
         if (isset($connectFunctions[$cluster])) {
-            $api = $connectFunctions[$cluster]();
+            $api = $connectFunctions[$cluster](); // Memanggil fungsi koneksi sesuai cluster
             if ($api === null) {
-                redirect('C_FormLogin');
+                redirect('C_FormLogin'); // Jika API gagal terkoneksi, arahkan ke login
                 return;
             }
-        } else {
-            // Refresh Mikrotik
-            if ($this->session->userdata('cluster') == 'Kraksaan') {
-                $this->M_Mikrotik_Kraksaan->index();
-            } elseif ($this->session->userdata('cluster') == 'Paiton') {
-                $this->M_Mikrotik_Paiton->index();
+
+            // Eksekusi berdasarkan cluster yang terhubung
+            if ($cluster === 'Kraksaan') {
+                $this->M_Mikrotik_Kraksaan->index(); // Menjalankan metode untuk Kraksaan
+            } elseif ($cluster === 'Paiton') {
+                $this->M_Mikrotik_Paiton->index(); // Menjalankan metode untuk Paiton
             }
         }
+
 
         // Database
         $data['Total_Pelanggan']    = $this->M_Pelanggan->Total_Pelanggan($this->session->userdata('cluster'));

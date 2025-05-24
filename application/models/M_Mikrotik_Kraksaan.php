@@ -50,25 +50,30 @@ class M_Mikrotik_Kraksaan extends CI_Model
                     if ($Show_Data['kode_mikrotik'] == NULL) {
                         $updateData[] = [
                             'id_customer'   => $Show_Data['id_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'id_pppoe'      => $Show_Mikrotik['.id'],
                             'disabled'      => $Show_Mikrotik['disabled'],
-                            'kode_mikrotik' => 'Kraksaan'
+                            'kode_mikrotik' => 'Kraksaan',
+                            'updated_at'        => date('Y-m-d H:i:s', time()),
                         ];
 
                         $response[$keySecret] = [
                             'id_customer'   => $Show_Data['id_customer'],
-                            'kode_customer' => $Show_Data['kode_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'nama_customer' => $Show_Data['nama_customer'],
                             'nama_paket'    => $Nama_Paket[$Show_Mikrotik['profile']],
+                            'updated_at'    => date('Y-m-d H:i:s', time()),
                         ];
                     }
 
                     if ($Show_Data['kode_mikrotik'] != NULL) {
                         $updateData[] = [
                             'id_customer'   => $Show_Data['id_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'id_pppoe'      => $Show_Mikrotik['.id'],
                             'disabled'      => $Show_Mikrotik['disabled'],
-                            'kode_mikrotik' => 'Kraksaan'
+                            'kode_mikrotik' => 'Kraksaan',
+                            'updated_at'    => date('Y-m-d H:i:s', time()),
                         ];
 
                         $response[$keySecret] = [
@@ -76,6 +81,7 @@ class M_Mikrotik_Kraksaan extends CI_Model
                             'kode_customer' => $Show_Data['kode_customer'],
                             'nama_customer' => $Show_Data['nama_customer'],
                             'nama_paket'    => $Nama_Paket[$Show_Mikrotik['profile']],
+                            'updated_at'        => date('Y-m-d H:i:s', time()),
                         ];
                     }
                 }
@@ -83,7 +89,7 @@ class M_Mikrotik_Kraksaan extends CI_Model
 
             if ($status == false) {
                 $insertData[] = [
-                    'kode_customer'     => '0',
+                    'kode_customer'     => $Show_Mikrotik['name'],
                     'phone_customer'    => '0',
                     'nama_customer'     => $Show_Mikrotik['name'],
                     'nama_paket'        => $Nama_Paket[$Show_Mikrotik['profile']],

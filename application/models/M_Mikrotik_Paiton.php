@@ -50,25 +50,30 @@ class M_Mikrotik_Paiton extends CI_Model
                     if ($Show_Data['kode_mikrotik'] == NULL) {
                         $updateData[] = [
                             'id_customer'   => $Show_Data['id_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'id_pppoe'      => $Show_Mikrotik['.id'],
                             'disabled'      => $Show_Mikrotik['disabled'],
-                            'kode_mikrotik' => 'Paiton'
+                            'kode_mikrotik' => 'Paiton',
+                            'updated_at'        => date('Y-m-d H:i:s', time()),
                         ];
 
                         $response[$keySecret] = [
                             'id_customer'   => $Show_Data['id_customer'],
-                            'kode_customer' => $Show_Data['kode_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'nama_customer' => $Show_Data['nama_customer'],
                             'nama_paket'    => $Nama_Paket[$Show_Mikrotik['profile']],
+                            'updated_at'    => date('Y-m-d H:i:s', time()),
                         ];
                     }
 
                     if ($Show_Data['kode_mikrotik'] != NULL) {
                         $updateData[] = [
                             'id_customer'   => $Show_Data['id_customer'],
+                            'kode_customer' => $Show_Mikrotik['name'],
                             'id_pppoe'      => $Show_Mikrotik['.id'],
                             'disabled'      => $Show_Mikrotik['disabled'],
-                            'kode_mikrotik' => 'Paiton'
+                            'kode_mikrotik' => 'Paiton',
+                            'updated_at'    => date('Y-m-d H:i:s', time()),
                         ];
 
                         $response[$keySecret] = [
@@ -76,6 +81,7 @@ class M_Mikrotik_Paiton extends CI_Model
                             'kode_customer' => $Show_Data['kode_customer'],
                             'nama_customer' => $Show_Data['nama_customer'],
                             'nama_paket'    => $Nama_Paket[$Show_Mikrotik['profile']],
+                            'updated_at'        => date('Y-m-d H:i:s', time()),
                         ];
                     }
                 }
