@@ -46,8 +46,8 @@ class C_Paket_Internet extends CI_Controller
             $row[] = '
             <div class="text-center">
                 <button type="button" onclick="Edit_Data(' . $data_PaketInternet['id_paket'] . ')" 
-                        class="btn btn-sm btn-danger">
-                    <i class="bi bi-trash"></i> Delete
+                        class="btn btn-sm btn-primary">
+                    <i class="bi bi-pencil-square"></i> Edit </a>
                 </button>
             </div>';
 
