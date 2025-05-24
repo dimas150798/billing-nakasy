@@ -4,28 +4,5 @@
 <!-- Edit Pelanggan-->
 <div id="edit-url" data-url="<?= site_url('admin/Data_Pelanggan/C_Edit_Pelanggan/Edit_Pelanggan'); ?>"></div>
 
-<!-- Alert Berhasil -->
-<script>
-    <?php if ($this->session->flashdata('Tambah_icon')) { ?>
-        var toastMixin = Swal.mixin({
-            toast: true,
-            icon: '<?php echo $this->session->flashdata('Tambah_icon') ?>',
-            title: 'General Title',
-            animation: false,
-            position: 'top-right',
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        });
-
-        toastMixin.fire({
-            animation: true,
-            title: '<?php echo $this->session->flashdata('Tambah_title') ?>'
-        });
-
-    <?php } ?>
-</script>
+<!-- Delete Pelanggan-->
+<div id="delete-url" data-url="<?= site_url('admin/Data_Pelanggan/C_Delete_Pelanggan/Delete_Pelanggan'); ?>"></div>

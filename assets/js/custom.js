@@ -37,6 +37,26 @@ function EditDataPelanggan(parameter_id) {
     });
 }
 
+// Delete Data Sweetalert2
+function DeletePelanggan(parameter_id) {
+    // Ambil URL dari elemen data-url
+    var deleteUrl = document.getElementById('delete-url').getAttribute('data-url');
+    
+    Swal.fire({
+        title: 'Yakin Melakukan Hapus Data ?',
+        text: "Data yang di hapus tidak akan kembali",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus Data!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Gabungkan URL dan parameter_id
+            window.location.href = deleteUrl + '/' + parameter_id;
+        }
+    });
+}
 
 // Initialize Select2 for nama_paket
 $('#nama_paket').each(function() {

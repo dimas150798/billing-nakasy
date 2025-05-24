@@ -55,9 +55,7 @@ class C_Data_Pelanggan extends CI_Controller
                             <a onclick="EditDataPelanggan(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-black"><i class="bi bi-pencil-square"></i> Edit </a>
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center gap-2 text-danger btn-delete" href="#" data-id="' . htmlspecialchars($dataCustomer['id_customer']) . '">
-                                <i class="bi bi-trash"></i> Hapus
-                            </a>
+                            <a onclick="DeletePelanggan(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-danger"><i class="bi bi-trash"></i> Delete </a>
                         </li>
                     </ul>
                 </div>
