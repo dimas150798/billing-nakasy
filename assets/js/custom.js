@@ -17,7 +17,7 @@ $(document).ready(function() {
 });
 
 // Edit Data Sweetalert2
-function EditDataPelanggan(parameter_id) {
+function Edit_Data(parameter_id) {
     // Ambil URL dari elemen data-url
     var editUrl = document.getElementById('edit-url').getAttribute('data-url');
     
@@ -38,7 +38,7 @@ function EditDataPelanggan(parameter_id) {
 }
 
 // Delete Data Sweetalert2
-function DeletePelanggan(parameter_id) {
+function Delete_Data(parameter_id) {
     // Ambil URL dari elemen data-url
     var deleteUrl = document.getElementById('delete-url').getAttribute('data-url');
     

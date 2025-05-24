@@ -2,7 +2,4 @@
 <div id="data-url" data-url="<?= base_url('admin/Paket_Internet/C_Paket_Internet/GetDataAjax'); ?>"></div>
 
 <!-- Edit Pelanggan-->
-<div id="edit-url" data-url="<?= site_url('admin/Data_Pelanggan/C_Edit_Pelanggan/Edit_Pelanggan'); ?>"></div>
-
-<!-- Delete Pelanggan-->
-<div id="delete-url" data-url="<?= site_url('admin/Data_Pelanggan/C_Delete_Pelanggan/Delete_Pelanggan'); ?>"></div>
+<div id="edit-url" data-url="<?= site_url('admin/Paket_Internet/C_Edit_Paket_Internet/Edit_Paket_Internet'); ?>"></div>

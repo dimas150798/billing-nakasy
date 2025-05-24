@@ -52,10 +52,10 @@ class C_Data_Pelanggan extends CI_Controller
                     </button>
                     <ul class="dropdown-menu shadow-sm rounded-3">
                         <li>
-                            <a onclick="EditDataPelanggan(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-black"><i class="bi bi-pencil-square"></i> Edit </a>
+                            <a onclick="Edit_Data(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-black"><i class="bi bi-pencil-square"></i> Edit </a>
                         </li>
                         <li>
-                            <a onclick="DeletePelanggan(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-danger"><i class="bi bi-trash"></i> Delete </a>
+                            <a onclick="Delete_Data(' . $dataCustomer['id_customer'] . ')"class="dropdown-item text-danger"><i class="bi bi-trash"></i> Delete </a>
                         </li>
                     </ul>
                 </div>
