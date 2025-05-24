@@ -29,12 +29,12 @@ class C_Dashboard_Admin extends CI_Controller
         $tahun          = $Split_Date[0];
         $bulan          = $Split_Date[1];
 
-        $cluster = $this->session->userdata('cluster');
+        // $cluster = $this->session->userdata('cluster');
 
-        $connectFunctions = [
-            'Kraksaan' => 'Connect_Kraksaaan',
-            'Paiton'   => 'Connect_Paiton'
-        ];
+        // $connectFunctions = [
+        //     'Kraksaan' => 'Connect_Kraksaaan',
+        //     'Paiton'   => 'Connect_Paiton'
+        // ];
 
         // // Pastikan hanya menjalankan cluster yang sesuai
         // if (isset($connectFunctions[$cluster])) {

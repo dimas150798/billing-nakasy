@@ -84,3 +84,12 @@ $('#nama_area').each(function() {
         dropdownParent: $(this).parent(),
     });
 });
+
+// Initialize Select2 for nama_divisi
+$('#id_jabatan').each(function() {
+    $(this).select2({
+        placeholder: 'Pilih Divisi:',
+        theme: 'bootstrap-5',
+        dropdownParent: $(this).parent(),
+    });
+});
